@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametre Gösterici</title>
+</head>
+<body>
+    <h1></h1>
+    <p id="output"></p>
+
+    <script>
+        // URL'den parametreleri alma fonksiyonu
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params;
+        }
+
+        // Parametreleri ekranda gösterme
+        function displayParam() {
+            const queryParams = getQueryParams();
+            const paramName = 'param'; // Değişken parametre adını buraya yazın
+            const paramValue = queryParams.get(paramName);
+            if (paramValue) {
+                document.getElementById('output').innerText = `parametreee = ${paramValue}`;
+            } else {
+                document.getElementById('output').innerText = 'Parametre bulunamadı.';
+            }
+        }
+
+        // Sayfa yüklendiğinde parametreleri göster
+        window.onload = displayParam;
+    </script>
+</body>
+</html>
